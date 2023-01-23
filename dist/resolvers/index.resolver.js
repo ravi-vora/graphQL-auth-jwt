@@ -1,8 +1,17 @@
 import { UserResolver } from "./user.resolver.js";
-import { GraphQLEmailType } from '../scalars/utils.scalar.js';
+import { GraphQLEmailAddress, GraphQLPhoneNumber, GraphQLFirstName, GraphQLLastName, GraphQLPassword } from '../scalars/user.scalar.js';
 export const Resolvers = {
+    EmailAddress: GraphQLEmailAddress,
+    PhoneNumber: GraphQLPhoneNumber,
+    FirstName: GraphQLFirstName,
+    LastName: GraphQLLastName,
+    Password: GraphQLPassword,
     Query: {
-        ...UserResolver
+        "users": UserResolver['users'],
+        "signinUser": UserResolver["signinUser"],
+        "auth": UserResolver["auth"]
     },
-    Email: GraphQLEmailType
+    Mutation: {
+        "signupUser": UserResolver["signupUser"]
+    }
 };

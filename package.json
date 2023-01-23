@@ -14,7 +14,9 @@
   "dependencies": {
     "@apollo/server": "^4.3.1",
     "graphql": "^16.6.0",
-    "jsonwebtoken": "^9.0.0"
+    "joi": "^17.7.0",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.8.4"
   },
   "devDependencies": {
     "@types/node": "^18.11.18",

@@ -24,13 +24,17 @@ export interface AuthUserError {
     password: string[]
 }
 
+// export interface UserSchema {
+//     id: string,
+//     email: string,
+//     phone: string
+// }
 export interface UserSchema {
     firstName: string,
     lastName: string,
     email: string,
     phone: string,
-    password: string,
-    confirmPassword?: string
+    password: string
 }
 
 export interface UserError {
@@ -40,4 +44,13 @@ export interface UserError {
     phone: string[],
     password: string[],
     confirmPassword: string[]
+}
+
+export interface NewUser {
+    firstName: string,
+    lastName: string,
+    email: string,
+    phone: string,
+    token: string,
+    expires: string
 }

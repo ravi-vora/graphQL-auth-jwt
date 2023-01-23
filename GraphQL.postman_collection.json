@@ -1,0 +1,85 @@
+{
+	"info": {
+		"_postman_id": "066dde6a-5f9b-4e1d-9cfb-e9eb18180308",
+		"name": "GraphQL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25356504"
+	},
+	"item": [
+		{
+			"name": "user.signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query SignupUser(\r\n    $firstName: FirstName!,\r\n    $lastName: LastName!,\r\n    $email: EmailAddress!,\r\n    $phone: PhoneNumber!,\r\n    $password: Password!\r\n) {\r\n    signupUser(\r\n        firstName: $firstName,\r\n        lastName: $lastName,\r\n        email: $email,\r\n        phone: $phone,\r\n        password: $password\r\n    ) {\r\n        firstName\r\n        lastName\r\n        email\r\n        phone\r\n        token\r\n        expires\r\n    }\r\n}",
+						"variables": "{\r\n    \"firstName\": \"Ravi\",\r\n    \"lastName\": \"Vora\",\r\n    \"email\": \"ravi@gmail.com\",\r\n    \"phone\": \"+919328620376\",\r\n    \"password\": \"ravi1234\"\r\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user.signin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query SigninUser(\r\n    $email: EmailAddress!,\r\n    $password: Password!\r\n) {\r\n    signinUser(\r\n        email: $email,\r\n        password: $password\r\n    ) {\r\n        firstName\r\n        lastName\r\n        email\r\n        phone\r\n        token\r\n        expires\r\n    }\r\n}",
+						"variables": "{\r\n    \"email\": \"ravi@gmail.com\",\r\n    \"password\": \"ravi1234\"\r\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user.auth",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2M2NlM2FhOGU1N2Y1ZDAyZWE5Y2EwNDMiLCJpYXQiOjE2NzQ0NjAxMDU1MjUsImV4cCI6MTY3NDU0NjUwNX0.MumqTYSSzH4c8uM4jY6r0Ja4e29NgQyKd9AWFtZyyodG4hfDzsKihpe4Y1BUrfkrXtJWI5zMzHyJfyy9caG1--yUxLEmmsEr_4Mzg0ffQV3-TNQwVo-HD6LmYjeVXBGTCdJZ9sYvFM0Y_iUewf0Q6oN36fYcdevwpAIetd8AzEpMLr8KI4VMYAj5T-_zQ2uzv4cnifnADpUzNkxYIvNLkT47oblRPgD5-wWfDeuKr85uafcSuUAos0PxXHi8bzcyeMSLjRLVh-6SgNgepXP11Le8VVgpE5h9SHHyOxtAxu1DN1XWQSpDnCKd5PzKSU-SlmnSneJbB8v_E21z7yhmllBUhsDkFXB4n0hkSBpJMv4N8UKFOyxBKHNRHOO931B6d3-8uECZGG0yReQ_Jq4Pz159bGfbXWqDKHCezavddQvoWGhA5wtjBHT4lrbtUCvN4T9nfJV4aVzz1P_NFG6s_vB4tycdfM_18aSlmCnsLRq-kvSyFe9gVvnhVQNTrg49MCXSzZArUORMa4yxD3Aj0qudBlsDGjNn2okK9o0zYfRvwBEcZgc-_8tUCdpxe4VgITgoaFCx5w1lRPleKEeCi8rpwzNrn4RCgKOzW_LdnQVlYKxOdzE9Nv7JtbM1WaLddK2lAe9668ciCqa-koNq_kN-BNDsuzpTtihVZZlXOLY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query AuthUser {\r\n    auth {\r\n        firstName,\r\n        lastName,\r\n        email,\r\n        phone\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000"
+				}
+			},
+			"response": []
+		}
+	]
+}
